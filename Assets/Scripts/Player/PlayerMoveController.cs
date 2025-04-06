@@ -1,11 +1,13 @@
 ﻿using System;
 using Components;
 using Input;
+using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
 
 namespace Player
 {
+    [UsedImplicitly]
     public class PlayerMoveController : IInitializable, IDisposable
     {
         private readonly InputAdapter _inputAdapter;

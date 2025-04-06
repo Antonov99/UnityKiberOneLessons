@@ -2,13 +2,16 @@
 
 namespace Components
 {
-    public class MoveComponent : MonoBehaviour
+    public class MoveComponent
     {
-        [SerializeField]
-        private float _speed;
-        
-        [SerializeField]
-        private Rigidbody _rigidbody;
+        private readonly float _speed;
+        private readonly Rigidbody _rigidbody;
+
+        public MoveComponent(float speed, Rigidbody rigidbody)
+        {
+            _speed = speed;
+            _rigidbody = rigidbody;
+        }
 
         public void Move(Vector3 direction)
         {
