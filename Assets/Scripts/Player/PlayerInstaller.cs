@@ -3,18 +3,11 @@ using Zenject;
 
 namespace Player
 {
-    public class PlayerInstaller : Installer<MoveComponent, PlayerInstaller>
+    public class PlayerInstaller : Installer<PlayerInstaller>
     {
-        [Inject]
-        private MoveComponent _moveComponent;
-
         public override void InstallBindings()
         {
-            Container
-                .BindInterfacesAndSelfTo<PlayerMoveController>()
-                .AsSingle()
-                .WithArguments(_moveComponent)
-                .NonLazy();
+            
         }
     }
 }

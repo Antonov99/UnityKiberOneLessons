@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Entities
 {
-    [RequireComponent(typeof(GameObjectContext))] // Необходимый компонент 
+    [RequireComponent(typeof(GameObjectContext))]
     public class Entity : MonoBehaviour
     {
         private DiContainer _container;
