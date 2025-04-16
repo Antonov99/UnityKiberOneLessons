@@ -15,6 +15,7 @@ namespace Components
 
         public void Move(Vector3 direction)
         {
+            Debug.Log("Move");
             if (direction == Vector3.zero)
             {
                 _rigidbody.velocity = Vector3.zero;

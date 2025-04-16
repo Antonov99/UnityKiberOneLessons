@@ -21,6 +21,7 @@ namespace Player
 
         public void Initialize()
         {
+            Debug.Log("Init");
             _inputAdapter.OnMove += OnMove;
         }
 

@@ -1,5 +1,4 @@
-﻿using Components;
-using Zenject;
+﻿using Zenject;
 
 namespace Player
 {

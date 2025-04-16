@@ -1,9 +1,11 @@
 ﻿using System;
 using Components;
 using Input;
+using JetBrains.Annotations;
 using UnityEngine;
-using IInitializable = Zenject.IInitializable;
+using Zenject;
 
+[UsedImplicitly]
 public class AnimatorController : IInitializable, IDisposable
 {
     private readonly AnimatorComponent _animatorComponent;
