@@ -1,5 +1,6 @@
 using Components;
 using Player;
+using UI;
 using UnityEngine;
 using Zenject;
 
@@ -13,6 +14,9 @@ public class PlayerEntityInstaller : MonoInstaller
 
     [SerializeField]
     private Animator _animator;
+
+    [SerializeField]
+    private JumpView _jumpView;
     
     public override void InstallBindings()
     {
@@ -34,8 +38,9 @@ public class PlayerEntityInstaller : MonoInstaller
             .NonLazy();
         
         Container
-            .BindInterfacesAndSelfTo<AnimatorController>()
+            .BindInterfacesAndSelfTo<PlayerAnimatorDispatcher>()
             .AsSingle()
+            .WithArguments(_jumpView)
             .NonLazy();
     }
 }

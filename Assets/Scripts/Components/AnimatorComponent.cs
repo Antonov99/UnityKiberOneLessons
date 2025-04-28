@@ -5,16 +5,20 @@ namespace Components
     public class AnimatorComponent
     {
         private readonly Animator _animator;
-        private static readonly int _move = Animator.StringToHash("Move");
-
+        
         public AnimatorComponent(Animator animator)
         {
             _animator = animator;
         }
 
-        public void SetMove(bool value)
+        public void SetBool(int name, bool value)
         {
-            _animator.SetBool(_move, value);
+            _animator.SetBool(name, value);
+        }
+
+        public void SetTrigger(int name)
+        {
+            _animator.SetTrigger(name);
         }
     }
 }
