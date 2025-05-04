@@ -12,11 +12,16 @@ namespace Player
     {
         private readonly InputAdapter _inputAdapter;
         private readonly MoveComponent _moveComponent;
+        private readonly RotationComponent _rotationComponent;
 
-        public PlayerMoveController(InputAdapter inputAdapter, MoveComponent moveComponent)
+        public PlayerMoveController(
+            InputAdapter inputAdapter,
+            MoveComponent moveComponent,
+            RotationComponent rotationComponent)
         {
             _inputAdapter = inputAdapter;
             _moveComponent = moveComponent;
+            _rotationComponent = rotationComponent;
         }
 
         public void Initialize()
@@ -27,6 +32,7 @@ namespace Player
         private void OnMove(Vector3 direction)
         {
             _moveComponent.Move(direction);
+            _rotationComponent.Rotate(direction);
         }
 
         public void Dispose()
