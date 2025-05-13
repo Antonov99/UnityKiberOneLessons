@@ -11,7 +11,10 @@ namespace Collectibles
         
         public override void InstallBindings()
         {
-            Container.BindMemoryPool<CollectibleEntityInstaller>().FromInstance(_collectibleEntityInstaller);
+            Container.BindMemoryPool<CollectibleEntityInstaller, MonoMemoryPool<CollectibleEntityInstaller>>()
+                .WithInitialSize(10)
+                .FromComponentInNewPrefab(_collectibleEntityInstaller)
+                .UnderTransformGroup("Coins").NonLazy();
         }
     }
 }
