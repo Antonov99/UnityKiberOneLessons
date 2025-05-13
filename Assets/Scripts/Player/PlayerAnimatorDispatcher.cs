@@ -10,7 +10,7 @@ using Zenject;
 public class PlayerAnimatorDispatcher : IInitializable, IDisposable
 {
     private static readonly int _isMoving = Animator.StringToHash("Move");
-    private static readonly int _jump = Animator.StringToHash("Jump");
+    private static readonly int _jump = Animator.StringToHash("Mine");
     
     private readonly AnimatorComponent _animatorComponent;
     private readonly InputAdapter _inputAdapter;
