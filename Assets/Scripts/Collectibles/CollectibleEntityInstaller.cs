@@ -1,8 +1,13 @@
-﻿using UnityEngine;
+﻿using Components;
+using Zenject;
 
 namespace Collectibles
 {
-    public class CollectibleEntityInstaller : MonoBehaviour
+    public class CollectibleEntityInstaller : MonoInstaller
     {
+        public override void InstallBindings()
+        {
+            Container.Bind<ResourceComponent>().AsSingle().NonLazy();
+        }
     }
 }

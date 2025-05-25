@@ -17,5 +17,10 @@ namespace Entities
         {
             return _container.Resolve<T>();
         }
+
+        public T TryGet<T>() where T: class
+        {
+            return _container.TryResolve<T>();
+        }
     }
 }

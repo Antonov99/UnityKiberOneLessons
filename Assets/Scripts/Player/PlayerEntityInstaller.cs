@@ -1,4 +1,6 @@
+using Collisions;
 using Components;
+using Gameplay;
 using Player;
 using UI;
 using UnityEngine;
@@ -20,6 +22,9 @@ public class PlayerEntityInstaller : MonoInstaller
 
     [SerializeField]
     private JumpView _jumpView;
+
+    [SerializeField]
+    private CollisionReceiver _collisionReceiver;
     
     public override void InstallBindings()
     {
@@ -49,6 +54,16 @@ public class PlayerEntityInstaller : MonoInstaller
             .BindInterfacesAndSelfTo<PlayerAnimatorDispatcher>()
             .AsSingle()
             .WithArguments(_jumpView)
+            .NonLazy();
+
+        Container
+            .BindInterfacesAndSelfTo<DigObserver>()
+            .AsSingle()
+            .WithArguments(_collisionReceiver)
+            .NonLazy();
+        
+        Container.Bind<DigSystem>()
+            .AsSingle()
             .NonLazy();
     }
 }

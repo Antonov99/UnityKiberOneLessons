@@ -10,7 +10,7 @@ using Zenject;
 public class PlayerAnimatorDispatcher : IInitializable, IDisposable
 {
     private static readonly int _isMoving = Animator.StringToHash("Move");
-    private static readonly int _jump = Animator.StringToHash("Mine");
+    private static readonly int _mine = Animator.StringToHash("Mine");
     
     private readonly AnimatorComponent _animatorComponent;
     private readonly InputAdapter _inputAdapter;
@@ -29,7 +29,7 @@ public class PlayerAnimatorDispatcher : IInitializable, IDisposable
     public void Initialize()
     {
         _inputAdapter.OnMove += OnMoveAnimation;
-        _jumpView.OnButtonClick += OnJumpAnimation;
+        _jumpView.OnButtonClick += OnMineAnimation;
     }
 
     private void OnMoveAnimation(Vector3 obj)
@@ -37,14 +37,14 @@ public class PlayerAnimatorDispatcher : IInitializable, IDisposable
         _animatorComponent.SetBool(_isMoving, obj != Vector3.zero);
     }
 
-    private void OnJumpAnimation()
+    private void OnMineAnimation()
     {
-        _animatorComponent.SetTrigger(_jump);
+        _animatorComponent.SetBool(_mine,true);
     }
 
     public void Dispose()
     {
         _inputAdapter.OnMove -= OnMoveAnimation;
-        _jumpView.OnButtonClick -= OnJumpAnimation;
+        _jumpView.OnButtonClick -= OnMineAnimation;
     }
 }
