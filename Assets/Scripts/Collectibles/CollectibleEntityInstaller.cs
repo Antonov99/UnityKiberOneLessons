@@ -1,5 +1,4 @@
-﻿using Components;
-using Zenject;
+﻿using Zenject;
 
 namespace Collectibles
 {
@@ -7,7 +6,6 @@ namespace Collectibles
     {
         public override void InstallBindings()
         {
-            Container.Bind<ResourceComponent>().AsSingle().NonLazy();
         }
     }
 }

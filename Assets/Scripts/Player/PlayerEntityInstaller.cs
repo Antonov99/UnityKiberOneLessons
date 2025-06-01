@@ -8,6 +8,15 @@ using Zenject;
 
 public class PlayerEntityInstaller : MonoInstaller
 {
+    private static readonly int _chopAnimHash = Animator.StringToHash("Chop");
+    private static readonly int _mineAnimHash = Animator.StringToHash("Mine");
+
+    [SerializeField]
+    private GameObject _axe;
+
+    [SerializeField]
+    private GameObject _pick;
+    
     [SerializeField]
     private float _moveSpeed;
     
@@ -19,9 +28,6 @@ public class PlayerEntityInstaller : MonoInstaller
 
     [SerializeField]
     private Animator _animator;
-
-    [SerializeField]
-    private JumpView _jumpView;
 
     [SerializeField]
     private CollisionReceiver _collisionReceiver;
@@ -43,6 +49,11 @@ public class PlayerEntityInstaller : MonoInstaller
             .AsSingle()
             .WithArguments(_animator)
             .NonLazy();
+
+        Container.Bind<DigAnimationComponent>()
+            .AsSingle()
+            .WithArguments(_axe, _pick, _chopAnimHash, _mineAnimHash)
+            .NonLazy();
         
         //Systems:
         Container
@@ -53,7 +64,6 @@ public class PlayerEntityInstaller : MonoInstaller
         Container
             .BindInterfacesAndSelfTo<PlayerAnimatorDispatcher>()
             .AsSingle()
-            .WithArguments(_jumpView)
             .NonLazy();
 
         Container
