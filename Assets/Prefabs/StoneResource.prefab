@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 941516628139584378}
+  _resourceType: 1
+  _capacity: 3
 --- !u!1001 &1618845119601774162
 PrefabInstance:
   m_ObjectHideFlags: 0

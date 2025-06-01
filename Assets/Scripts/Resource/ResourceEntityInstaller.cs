@@ -8,12 +8,19 @@ namespace Resource
     {
         [SerializeField]
         private Transform _transform;
+
+        [SerializeField]
+        private ResourceType _resourceType;
+
+        [SerializeField]
+        private int _capacity;
         
         public override void InstallBindings()
         {
             Container
                 .Bind<ResourceComponent>()
                 .AsSingle()
+                .WithArguments(_resourceType, _capacity)
                 .NonLazy();
             
             Container

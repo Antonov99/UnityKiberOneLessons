@@ -31,6 +31,9 @@ public class PlayerEntityInstaller : MonoInstaller
 
     [SerializeField]
     private CollisionReceiver _collisionReceiver;
+
+    [SerializeField]
+    private AnimationEventsDispatcher _animationEventsDispatcher;
     
     public override void InstallBindings()
     {
@@ -74,6 +77,7 @@ public class PlayerEntityInstaller : MonoInstaller
         
         Container.Bind<DigSystem>()
             .AsSingle()
+            .WithArguments(_animationEventsDispatcher)
             .NonLazy();
     }
 }
