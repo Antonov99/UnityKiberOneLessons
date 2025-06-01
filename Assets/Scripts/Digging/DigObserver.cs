@@ -24,18 +24,16 @@ namespace Gameplay
         {
             _collisionReceiver.OnEnter += StartDigging;
             _collisionReceiver.OnExit += StopDigging;
-            Debug.Log("Init");
         }
 
         private void StartDigging(Collision collider)
         {
-            Debug.Log("Init1");
             if (!collider.gameObject.TryGetComponent(out Entity entity))
                 return;
-            Debug.Log("Init2");
+            
             if (entity.TryGet<ResourceComponent>() is null)
                 return;
-            Debug.Log("Init3");
+            
             _digSystem.StartDig(entity);
         }
 
@@ -48,7 +46,6 @@ namespace Gameplay
                 return;
             
             _digSystem.StopDig();
-            Debug.Log("stop");
         }
 
         public void Dispose()

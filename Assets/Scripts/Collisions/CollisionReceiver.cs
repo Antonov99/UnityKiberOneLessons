@@ -10,7 +10,6 @@ namespace Collisions
 
         private void OnCollisionEnter(Collision other)
         {
-            Debug.Log("Onddd");
             OnEnter?.Invoke(other);
         }
 
