@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Resource
 {
-    public class ResourceEntityInstaller:MonoInstaller
+    public class ResourceEntityInstaller: MonoInstaller
     {
         [SerializeField]
         private Transform _transform;

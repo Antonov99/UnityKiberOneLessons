@@ -11,6 +11,7 @@ namespace Gameplay
     public sealed class DigSystem : IInitializable,IDisposable
     {
         public event Action<Entity> OnResourceEmpty;
+        public event Action<ResourceType, int> OnResourceGathered;
         
         private Entity _currentResource;
         private bool _allowDig;
@@ -62,8 +63,12 @@ namespace Gameplay
         {
             var resourceComponent = _currentResource.Get<ResourceComponent>();
             resourceComponent.Gather();
+            
+            var resourceType = resourceComponent.GetResourceType();
+            OnResourceGathered?.Invoke(resourceType, 1);
+            
             Debug.Log(eventName);
-            Debug.Log(resourceComponent.GetResourceType());
+            Debug.Log(resourceType);
 
             if (resourceComponent.Current <= 0)
             {

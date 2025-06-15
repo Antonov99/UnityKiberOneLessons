@@ -1,5 +1,6 @@
 ﻿using Collectibles;
 using Input;
+using Inventory;
 using UnityEngine;
 using Zenject;
 
@@ -15,5 +16,7 @@ public class GameplayInstaller : MonoInstaller
     {
         InputInstaller.Install(Container, _joystick);
         CollectiblesInstaller.Install(Container, _collectibleEntityInstaller);
+
+        Container.Bind<ResourceStorage>().AsSingle().NonLazy();
     }
 }

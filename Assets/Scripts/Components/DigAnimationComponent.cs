@@ -14,7 +14,7 @@ namespace Components
         
         private readonly int _chopAnimHash;
         private readonly int _mineAnimHash;
-
+        
         public DigAnimationComponent(
             AnimatorComponent animatorComponent,
             GameObject axeObject, GameObject pickaxeObject,

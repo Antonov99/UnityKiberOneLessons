@@ -2,6 +2,7 @@ using Collisions;
 using Components;
 using Gameplay;
 using Player;
+using Resource;
 using UI;
 using UnityEngine;
 using Zenject;
@@ -78,6 +79,10 @@ public class PlayerEntityInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<DigSystem>()
             .AsSingle()
             .WithArguments(_animationEventsDispatcher)
+            .NonLazy();
+        
+        Container.BindInterfacesAndSelfTo<AddResourceController>()
+            .AsSingle()
             .NonLazy();
     }
 }

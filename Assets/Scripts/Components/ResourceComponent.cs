@@ -7,7 +7,6 @@ namespace Components
     [UsedImplicitly]
     public sealed class ResourceComponent
     {
-        public event Action<ResourceType, int> OnResourceValueChanged;
         public int Capacity { get; }
         public int Current => _current;
 
@@ -35,7 +34,6 @@ namespace Components
         public void Gather()
         {
             _current--;
-            OnResourceValueChanged?.Invoke(_type, _current);
         }
     }
 }
