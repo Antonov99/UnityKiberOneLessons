@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Gameplay
+namespace Components
 {
     [UsedImplicitly]
     public class TransformComponent

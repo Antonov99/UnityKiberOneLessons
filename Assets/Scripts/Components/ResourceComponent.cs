@@ -1,7 +1,8 @@
 ﻿using System;
+using Gameplay;
 using JetBrains.Annotations;
 
-namespace Gameplay
+namespace Components
 {
     [UsedImplicitly]
     public sealed class ResourceComponent
@@ -21,7 +22,7 @@ namespace Gameplay
             _current = capacity;
         }
 
-        public void SetMaxCurrent(int value)
+        public void SetMaxCurrent()
         {
             _current = Capacity;
         }

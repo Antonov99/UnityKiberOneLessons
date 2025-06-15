@@ -1,4 +1,5 @@
-﻿using Gameplay;
+﻿using Components;
+using Gameplay;
 using UnityEngine;
 using Zenject;
 

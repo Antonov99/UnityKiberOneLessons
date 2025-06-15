@@ -38,15 +38,16 @@ namespace Gameplay
         {
             _allowDig = true;
             var position = entity.Get<TransformComponent>().GetPosition();
+            position.y = 0;
             _rotationComponent.Rotate(position);
 
             var resourceComponent = entity.Get<ResourceComponent>();
             if (resourceComponent.Current < 1)
                 return;
-
+        
             var resourceType = resourceComponent.GetResourceType();
 
-            _animationComponent.Dig(resourceType);
+            _animationComponent.StartDig(resourceType);
 
             _currentResource = entity;
         }

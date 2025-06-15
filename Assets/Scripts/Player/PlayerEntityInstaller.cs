@@ -75,7 +75,7 @@ public class PlayerEntityInstaller : MonoInstaller
             .WithArguments(_collisionReceiver)
             .NonLazy();
         
-        Container.Bind<DigSystem>()
+        Container.BindInterfacesAndSelfTo<DigSystem>()
             .AsSingle()
             .WithArguments(_animationEventsDispatcher)
             .NonLazy();

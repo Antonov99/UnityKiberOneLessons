@@ -1,5 +1,6 @@
 ﻿using System;
 using Collisions;
+using Components;
 using Entities;
 using JetBrains.Annotations;
 using UnityEngine;

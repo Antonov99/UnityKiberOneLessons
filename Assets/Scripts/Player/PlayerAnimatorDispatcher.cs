@@ -2,7 +2,6 @@
 using Components;
 using Input;
 using JetBrains.Annotations;
-using UI;
 using UnityEngine;
 using Zenject;
 

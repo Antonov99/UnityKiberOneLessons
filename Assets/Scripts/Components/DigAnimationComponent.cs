@@ -1,5 +1,4 @@
-﻿
-using Gameplay;
+﻿using Gameplay;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -28,7 +27,7 @@ namespace Components
             _mineAnimHash = mineAnimHash;
         }
 
-        public void Dig(ResourceType resourceType)
+        public void StartDig(ResourceType resourceType)
         {
             if (resourceType == ResourceType.WOOD)
             {
